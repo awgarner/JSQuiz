@@ -3,9 +3,16 @@
 let num = 60;
 
 function printNumber () {
-    let numElement = document.createElement('div');
-    numElement.textContent = num;
-    document.body.appendChild(numElement);
+    var divEl = document.querySelector("#dynamic-timer");
+    var timerEl = document.createElement("h1");
+    timerEl.textContent = num;
+    divEl.appendChild(timerEl);
+
+
+
+    // let numElement = document.createElement('div');
+    // numElement.textContent = num;
+    // document.body.appendChild(numElement);
 
     // conditional statement that stops the setInterval helper funciton when num is 0
 
