@@ -1,3 +1,44 @@
+
+// arrays
+var quizQuestions = [
+    {
+        title: "Common JavaScript data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      {
+        title: "Conditions in if / else statement are enclosed in ____.",
+        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        answer: "parentheses"
+      },
+      {
+        title: "JavaScript arrays can store ____.",
+        choices: [
+          "numbers and strings",
+          "other arrays",
+          "booleans",
+          "all of the above"
+        ],
+        answer: "all of the above"
+      },
+      {
+        title:
+          "String values must be enclosed in ____ when assiging them to variables.",
+        choices: ["commas", "curly brackets", "quotes", "parentheses"],
+        answer: "quotes"
+      },
+      {
+        title:
+          "A great tool for development, debugging, and for printing content to the debugger is:",
+        choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+        answer: "console.log"
+      }
+]
+
+const questionSection = document.getElementById('questionContainer');
+let questionIndex = 0;
+
+
 // timer funcitonality
 
     // 60 is hard coded into the html as the starting value
@@ -23,6 +64,47 @@
     // runs printNumber() every second
     let interval = setInterval(printNumber, 1000);
 
+
+    function displayQuestion(qIndex){
+    //     <section id="questionContainer">
+    //     <div class="question">
+    //         <h1></h1>
+    //     </div>
+    // </section>
+
+    
+
+    const questionDiv = document.createElement('div');
+    const questionH1 = document.createElement('h1');
+    questionH1.textContent= quizQuestions[qIndex].title;
+    questionDiv.setAttribute('class', "question");
+    questionDiv.append(questionH1);
+    questionSection.append(questionDiv)
+
+    // print questions
+//<div class="answer">
+    // <div class="option">
+       //        <button type="button" onclick="FUNCTIONALITY-HERE">
+        //          Option 1 Lorem, ipsum.
+        //      </button>
+        //  </div>
+
+        const optionDivContainer = document.createElement('div')
+        for(let i = 0; i < quizQuestions[qIndex].choices.length; i++){
+            const optionDiv = document.createElement('div')
+            const optionButton = document.createElement("button")
+            optionButton.textContent= quizQuestions[qIndex].choices[i];
+            optionDivContainer.setAttribute('class', 'answer')
+            optionDiv.setAttribute('class', 'option')
+            optionButton.setAttribute('type', 'button')
+            optionDiv.append(optionButton)
+            optionDivContainer.append(optionDiv)
+        }
+        questionSection.append(optionDivContainer)
+   
+    }
+
+    displayQuestion(questionIndex);
 // Pseudocode of Remaining Functionality:
 
     // 1. When I click the Start Button:
@@ -35,15 +117,16 @@
         // a. Conditional statement that evaluates the selection
             // if CORRECT, then:
                 // display 'Correct!'
-                // genterate next question
+                // generate next question
             // if WRONG, then:
                 // display 'Wrong!'
                 // subtract time from clock
+                // generate next question
     // 3. When all quesitons are answered OR timer reaches 0:
         // a. remove questions and buttons to be replaced with:
             // -"All Done"
             // -"Your final score is NUMBER HERE (remaining time)"
-            // -"Enter initials" in an input
+            // -"Enter initials" in an input local storage
             // submit button 
     // 4. Submit button takes you to high score page which:
         // a. displays all stored high scores in descending order, including your most recent score
@@ -53,22 +136,26 @@
 
 // beginQuiz funcitonality here..
 
-function beginQuiz {
+function beginQuiz() {
     // transition from start screen
     // show questions
     // start the timer
 }  
 
-function getQuestionFromArray {
+function getQuestionFromArray() {
     // pulls question from array and prints it to display
     // iterate over the array to display all the questions consecutively
 }
 
-function clickOnQuestion {
+function clickOnQuestion() {
     // checks if user input is wrong or right
     // penalizes them by removing time from the clock and shows new time
     // shows 'Right' or 'Wrong' at the bottom based on user selection
     // goes to next question
+}
+
+function endOfQuiz() {
+    // 
 }
 
 
