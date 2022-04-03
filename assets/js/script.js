@@ -30,7 +30,7 @@
         // b. Start timer coutdown
         // c. Dynamically generate questions from JS
         // d. Dynamically generate answers from JS
-
+      
     // 2. When I click an answer: 
         // a. Conditional statement that evaluates the selection
             // if CORRECT, then:
@@ -49,7 +49,29 @@
         // a. displays all stored high scores in descending order, including your most recent score
         // b. header and timer are gone
 
-// array that will hold the questions:
+
+
+// beginQuiz funcitonality here..
+
+function beginQuiz {
+    // transition from start screen
+    // show questions
+    // start the timer
+}  
+
+function getQuestionFromArray {
+    // pulls question from array and prints it to display
+    // iterate over the array to display all the questions consecutively
+}
+
+function clickOnQuestion {
+    // checks if user input is wrong or right
+    // penalizes them by removing time from the clock and shows new time
+    // shows 'Right' or 'Wrong' at the bottom based on user selection
+    // goes to next question
+}
+
+
 
 
 
