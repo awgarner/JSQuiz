@@ -27,6 +27,8 @@ nav
   padding: 0 10px 0 0;
 }
 
+
+
 /* Quiz Section Styles */
 
 .question, .answer {
@@ -44,8 +46,9 @@ nav
 }
 
 .option button {
-  width: 18vw;
+  width: 200px;
   height: 35px;
+  padding: 0px 20px 0px 20px;
   font-weight: bold;
   background-color:blue;
   color: white;
@@ -55,3 +58,16 @@ nav
 .option button:hover {
   background-color: blueviolet;
 }
+
+/* Feedback section styles */
+
+
+.feedback {
+  width: 50vw;
+}
+
+#italic {
+  font-style: italic;
+  opacity: 0.5;
+}
+
