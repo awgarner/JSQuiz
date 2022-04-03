@@ -4,6 +4,11 @@ body {
 
 }
 
+section {
+  display: flex;
+  justify-content: center;
+}
+
 /* Nav Styles */
 
 nav 
@@ -15,7 +20,7 @@ nav
 
 .timer-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .timeLabel {
@@ -23,3 +28,30 @@ nav
 }
 
 /* Quiz Section Styles */
+
+.question, .answer {
+  width: 50vw;
+}
+
+.answer h2 {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  padding: 5px 0px 5px 0px;
+}
+
+.option button {
+  width: 18vw;
+  height: 35px;
+  font-weight: bold;
+  background-color:blue;
+  color: white;
+  border-radius: 5px;
+}
+
+.option button:hover {
+  background-color: blueviolet;
+}

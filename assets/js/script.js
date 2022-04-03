@@ -22,3 +22,5 @@ function printNumber () {
 // helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
 // runs printNumber() every second
 let interval = setInterval(printNumber, 1000);
+
+
