@@ -6,7 +6,7 @@ body {
 
 section {
   display: flex;
-  flex-direction: column;
+  flex-direction: column ;
   justify-content: center;
   align-items: center;
 
@@ -72,5 +72,9 @@ nav
 #italic {
   font-style: italic;
   opacity: 0.5;
+}
+
+.hide {
+  display: none;
 }
 

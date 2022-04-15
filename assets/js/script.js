@@ -41,6 +41,10 @@ var quizQuestions = [
     // assigns the div with the ID of 'questionContainer' from index.html to the variable questionSection
     const questionSection = document.getElementById('questionContainer');
     // initializes variable questionIndex to equal 0 - to start on the first question
+    const startButtonEl = document.getElementById('startButton');
+    const startScreenEl = document.getElementById('startScreen');
+    var divEl = document.querySelector("#dynamic-timer");
+
     let questionIndex = 0;
     // 60 is hard coded into the html as the starting value for the timer
     let num = 59;
@@ -54,7 +58,6 @@ var quizQuestions = [
 // function with no parameters that dynamically prints num to html and subtracts 1 from num each time it runs
 function printNumber () {
         // selects the html element with id of dynamic-timer
-    var divEl = document.querySelector("#dynamic-timer");
         // creates variable timerNowEl and creates an html element with .createElement("span")
     var timerNowEl = document.createElement("span");
         // appends the innerHTML of divEl with the value of num
@@ -113,10 +116,10 @@ function displayQuestion(qIndex){
 
     // SECTION THAT GETS POSSIBLE ANSWERS FROM ARRAY AND PRINTS THEM DYNAMICALLY
 
-    // creates variable optionDivContatiner and creates a div inside of it
+    // creates variable optionDivContatiner and creates a div inside of it - locally scoped inside of the function displayQuestion
     const optionDivContainer = document.createElement('div')
+   
     // for loop that will iterate over the quizQuestions array by the qIndex function parameter and generate HTML as long as 'i' is less than the length of quizQuestions.choices
-    
     for(let i = 0; i < quizQuestions[qIndex].choices.length; i++){
         // creates variable optionDiv and creates a div inside
         const optionDiv = document.createElement('div')
@@ -178,25 +181,42 @@ function displayQuestion(qIndex){
 
 
 
+
+
 // beginQuiz funcitonality here..
 
+startButtonEl.onclick = beginQuiz;
+
+
+
 function beginQuiz() {
+    startScreenEl.setAttribute('class', 'hide')
+    questionSection.classList.remove("hide")
+
+
     // transition from start screen
     // show questions
     // start the timer
 }  
+
+function clickOnQuestion() {
+
+    if (this.value !== )
+    
+
+
+    // checks if user input is wrong or right
+    // penalizes them by removing time from the clock and shows new time
+    // shows 'Right' or 'Wrong' at the bottom based on user selection
+    // goes to next question
+}
 
 function getQuestionFromArray() {
     // pulls question from array and prints it to display
     // iterate over the array to display all the questions consecutively
 }
 
-function clickOnQuestion() {
-    // checks if user input is wrong or right
-    // penalizes them by removing time from the clock and shows new time
-    // shows 'Right' or 'Wrong' at the bottom based on user selection
-    // goes to next question
-}
+
 
 function endOfQuiz() {
     // 
