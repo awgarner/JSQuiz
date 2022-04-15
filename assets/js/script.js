@@ -35,76 +35,120 @@ var quizQuestions = [
       }
 ]
 
-const questionSection = document.getElementById('questionContainer');
-let questionIndex = 0;
 
+// VARIABLE DECLARATION SECTION
 
-// timer funcitonality
-
-    // 60 is hard coded into the html as the starting value
+    // assigns the div with the ID of 'questionContainer' from index.html to the variable questionSection
+    const questionSection = document.getElementById('questionContainer');
+    // initializes variable questionIndex to equal 0 - to start on the first question
+    let questionIndex = 0;
+    // 60 is hard coded into the html as the starting value for the timer
     let num = 59;
 
-    // function that dynamically prints num to html and subtracts 1 from num each time it runs
-    function printNumber () {
-            // selects the html element with id of dynamic-timer
-        var divEl = document.querySelector("#dynamic-timer");
-            // creates variable timerNowEl and creates an html element with .createElement("span")
-        var timerNowEl = document.createElement("span");
-            // appends the innerHTML of divEl with the value of num
-        divEl.innerHTML = num;
-            // conditional statement that stops the setInterval helper funciton when num is 0
-        if (num === 0) {
-            clearInterval(interval);
-        }
-        // subtracts one from num 
-        num--;
+
+
+
+
+
+// TIMER FUNCTIONALITY
+// function with no parameters that dynamically prints num to html and subtracts 1 from num each time it runs
+function printNumber () {
+        // selects the html element with id of dynamic-timer
+    var divEl = document.querySelector("#dynamic-timer");
+        // creates variable timerNowEl and creates an html element with .createElement("span")
+    var timerNowEl = document.createElement("span");
+        // appends the innerHTML of divEl with the value of num
+    divEl.innerHTML = num;
+        // conditional statement that stops the setInterval helper funciton when num is 0
+    if (num === 0) {
+        clearInterval(interval);
     }
+    // subtracts one from num 
+    num--;
+}
 
-    // helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
-    // runs printNumber() every second
-    let interval = setInterval(printNumber, 1000);
+// helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
+// runs printNumber() every second
+let interval = setInterval(printNumber, 1000);
 
 
-    function displayQuestion(qIndex){
-    //     <section id="questionContainer">
-    //     <div class="question">
-    //         <h1></h1>
-    //     </div>
-    // </section>
 
-    
 
+
+
+
+//QUESTION GENERATION SECTION
+// function that displays question and options dynamically by selecting an array item and generating HTML
+function displayQuestion(qIndex){
+
+                    //     <section id="questionContainer">
+                    //     <div class="question">
+                    //         <h1></h1>
+                    //     </div>
+                    //     </section>
+
+
+    // SECTION THAT PRINTS QUESTION
+
+    // creates div and assigns to variable questionDiv
     const questionDiv = document.createElement('div');
+    // creates h1 and assigns to variable questionH1
     const questionH1 = document.createElement('h1');
+    // assigns the textContent of questionH1 variable to the content of quizQuestions.[qIndex].title
     questionH1.textContent= quizQuestions[qIndex].title;
+    // assigns the class of 'question' to the questionDiv - links to CSS styling
     questionDiv.setAttribute('class', "question");
+    // appends questionH1 to the questionDiv
     questionDiv.append(questionH1);
+    // appends questionDiv to questionSection
     questionSection.append(questionDiv)
 
-    // print questions
-//<div class="answer">
-    // <div class="option">
-       //        <button type="button" onclick="FUNCTIONALITY-HERE">
-        //          Option 1 Lorem, ipsum.
-        //      </button>
-        //  </div>
+                        // print questions
+                    //<div class="answer">
+                        // <div class="option">
+                        //        <button type="button" onclick="FUNCTIONALITY-HERE">
+                            //          Option 1 Lorem, ipsum.
+                            //      </button>
+                            //  </div>
 
-        const optionDivContainer = document.createElement('div')
-        for(let i = 0; i < quizQuestions[qIndex].choices.length; i++){
-            const optionDiv = document.createElement('div')
-            const optionButton = document.createElement("button")
-            optionButton.textContent= quizQuestions[qIndex].choices[i];
-            optionDivContainer.setAttribute('class', 'answer')
-            optionDiv.setAttribute('class', 'option')
-            optionButton.setAttribute('type', 'button')
-            optionDiv.append(optionButton)
-            optionDivContainer.append(optionDiv)
-        }
-        questionSection.append(optionDivContainer)
-   
+    // SECTION THAT GETS POSSIBLE ANSWERS FROM ARRAY AND PRINTS THEM DYNAMICALLY
+
+    // creates variable optionDivContatiner and creates a div inside of it
+    const optionDivContainer = document.createElement('div')
+    // for loop that will iterate over the quizQuestions array by the qIndex function parameter and generate HTML as long as 'i' is less than the length of quizQuestions.choices
+    
+    for(let i = 0; i < quizQuestions[qIndex].choices.length; i++){
+        // creates variable optionDiv and creates a div inside
+        const optionDiv = document.createElement('div')
+        // creates variable optionButton and creates HTML button inside
+        const optionButton = document.createElement("button")
+        // assigns quizQuestions[qIndex].choices[i] as the text content of variable optionButton
+        optionButton.textContent= quizQuestions[qIndex].choices[i];
+        // assigns the class of 'answer' to the variable optionDivContainer - styling class
+        optionDivContainer.setAttribute('class', 'answer')
+        //assigns the class of 'option' to the variable optionDiv
+        optionDiv.setAttribute('class', 'option')
+        // assigns the type 'button' to the var optionButton (which contains an HTML button)
+        optionButton.setAttribute('type', 'button')
+        // appends the contents of optionButton to var optionDiv
+        optionDiv.append(optionButton)
+        // appends contents of optionDiv to optionDivContainer
+        optionDivContainer.append(optionDiv)
     }
 
+    // appends the generated optionDivContainer with all its contents to the var questionSection (which targets ID questionContainer in the HTML)
+    questionSection.append(optionDivContainer)
+
+}
+
+
+
+//function that passes the variable 'questionIndex' as the parameter.  Prints question and answer options dynamically
     displayQuestion(questionIndex);
+
+
+
+
 // Pseudocode of Remaining Functionality:
 
     // 1. When I click the Start Button:
