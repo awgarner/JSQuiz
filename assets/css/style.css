@@ -78,3 +78,31 @@ nav
   display: none;
 }
 
+
+/* START SCREEN STYLES */
+
+#startScreen h1 {
+  text-align: center;
+}
+
+#startScreen p {
+  font-size: large;
+  text-align: center;
+  padding: 0px 50px 0px 50px;
+}
+
+#startScreen button {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 35px;
+    padding: 0px 20px 0px 20px;
+    font-weight: bold;
+    background-color:blue;
+    color: white;
+    border-radius: 5px;
+}
+
+#startScreen button:hover {
+  background-color: blueviolet;
+}
