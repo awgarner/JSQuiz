@@ -88,12 +88,14 @@ function printNumber () {
 
 
 //QUESTION GENERATION SECTION
+
 // function that displays question and options dynamically by selecting an array item and generating HTML
 function displayQuestion(quizQuestion){
   //targets the startScreenEl variable/div and hides it when displayQuestion is called
   startScreenEl.style.display = 'none';
-  //
+  //assigns an h1 with the contents quizQuestion.title using string interpolation with backticks to target the array using the ${} notation
   var questionHTML = `<h1>${quizQuestion.title}</h1>`;
+  // 
   quizQuestion.choices.forEach(function (element){
       questionHTML+=`<button type='button' class='option'>${element}</button>`;
   })
