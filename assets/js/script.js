@@ -1,7 +1,7 @@
 
 // arrays
 var quizQuestions = [
-    {
+      {
         title: "Common JavaScript data types DO NOT include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
         answer: "alerts"
@@ -46,8 +46,8 @@ var quizQuestions = [
     var divEl = document.querySelector("#dynamic-timer");
 
     let questionIndex = 0;
-    // 60 is hard coded into the html as the starting value for the timer
-    let num = 59;
+    // 60 is hard coded into the html as the starting value for the timer 
+    let num = 3;
 
 
 
@@ -62,17 +62,17 @@ function printNumber () {
     var timerNowEl = document.createElement("span");
         // appends the innerHTML of divEl with the value of num
     divEl.innerHTML = num;
-        // conditional statement that stops the setInterval helper funciton when num is 0
-    if (num === 0) {
-        clearInterval(interval);
-    }
+
     // subtracts one from num 
     num--;
+
+    //checks if time ran out and runs endOfQuiz() if so
+    if (num <= 0) {
+        endOfQuiz()
+    }
 }
 
-// helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
-// runs printNumber() every second
-let interval = setInterval(printNumber, 1000);
+
 
 
 
@@ -137,6 +137,7 @@ function displayQuestion(qIndex){
         optionDiv.append(optionButton)
         // appends contents of optionDiv to optionDivContainer
         optionDivContainer.append(optionDiv)
+        
     }
 
     // appends the generated optionDivContainer with all its contents to the var questionSection (which targets ID questionContainer in the HTML)
@@ -190,6 +191,11 @@ startButtonEl.onclick = beginQuiz;
 
 
 function beginQuiz() {
+
+    // helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
+    // runs printNumber() every second
+    interval = setInterval(printNumber, 1000);
+
     startScreenEl.setAttribute('class', 'hide')
     questionSection.classList.remove("hide")
 
@@ -215,10 +221,18 @@ function getQuestionFromArray() {
     // iterate over the array to display all the questions consecutively
 }
 
+function highScoreStorage() {
+    //displays high score
+
+
+}
+
 
 
 function endOfQuiz() {
-    // 
+
+    clearInterval(interval);
+
 }
 
 
