@@ -95,10 +95,12 @@ function displayQuestion(quizQuestion){
   startScreenEl.style.display = 'none';
   //assigns an h1 with the contents quizQuestion.title using string interpolation with backticks to target the array using the ${} notation
   var questionHTML = `<h1>${quizQuestion.title}</h1>`;
-  // 
-  quizQuestion.choices.forEach(function (element){
+  // runs the function enclosed in the forEach method on each element in the array quizQuestion.choices
+  quizQuestion.choices.forEach(function(element){
+      // assigns a template string with button markup and inserts the element parameter as the text for each button. the element parameter is passed values from the forEach method from the quizQuestion.choices array.
       questionHTML+=`<button type='button' class='option'>${element}</button>`;
   })
+  // assigns the innerHTML of the var questionSection with the markup from var questionHTML
   questionSection.innerHTML = questionHTML
 
   elementsArray = document.querySelectorAll(".option");
@@ -226,14 +228,9 @@ startButtonEl.addEventListener('click', beginQuiz);
 
 
 function beginQuiz() {
-
-  // helper function that takes in two parameters (function you want to run, # of milliseconds between runs)
-  // runs printNumber() every second
-  // interval = setInterval(printNumber, 1000);
+  // runs function displayQuestion and passes the parameter of array quizQuestions at the index of var questionIndex which is initially assigned to 0 at the beginning of the code.
   displayQuestion(quizQuestions[questionIndex]);
-  // transition from start screen
-  // show questions
-  // start the timer
+
 }  
 
 
